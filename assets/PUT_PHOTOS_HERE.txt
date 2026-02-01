@@ -1,0 +1,16 @@
+Put your photos in this folder:
+
+  liminal_site/assets/
+
+For the website to show your album cover, name the file exactly:
+
+  album-cover.jpg
+
+You can also use a PDF as the cover (like your current one):
+
+  6 aublm.pdf
+
+If your image/PDF is a different name, change the path in:
+
+  liminal_site/index.html
+
