@@ -13,31 +13,33 @@
       <!-- Page 1 -->
       <section class="page page--cover" data-page="cover" aria-label="Album and player">
         <div class="cover">
-          <img
-            class="cover__image"
-            src="./assets/6%20aublm.pdf.png"
-            alt="Album cover"
-            loading="eager"
-            decoding="async"
-          />
+          <img class="cover__image" src="./assets/cover.png" alt="Album cover" />
         </div>
 
         <div class="transport" aria-label="Music controls">
           <button class="btn" type="button" data-action="skip" aria-label="Skip">
             <span class="btn__label">Skip</span>
           </button>
-          <button class="btn btn--primary" type="button" data-action="play" aria-label="Play">
+
+          <button class="btn btn--primary" type="button" data-action="to-poems" aria-label="Play">
             <span class="btn__label">Play</span>
           </button>
+
           <button class="btn" type="button" data-action="pause" aria-label="Pause">
             <span class="btn__label">Pause</span>
+          </button>
+        </div>
+
+        <div class="transport transport--icons" aria-label="Music controls (icons)">
+          <button class="btn" type="button" data-action="toggle-audio" aria-label="Play">
+            <span class="btn__icon" aria-hidden="true" data-audio-icon>▶︎</span>
           </button>
         </div>
 
         <audio
           id="audio"
           preload="metadata"
-          src="./assets/track-01.mp3"
+          data-tracks="./assets/track.mp3"
         ></audio>
 
         <footer class="credits" aria-label="Font credits">
@@ -50,9 +52,15 @@
 
       <!-- Page 2 -->
       <section class="page page--poems" data-page="poems" aria-label="Poems">
-        <button class="back" type="button" data-action="back" aria-label="Back">
-          <span class="back__label">Back</span>
-        </button>
+        <div class="poems__top">
+          <button class="back" type="button" data-action="back" aria-label="Back">
+            <span class="back__label">Back</span>
+          </button>
+          <button class="back back--icon" type="button" data-action="toggle-audio" aria-label="Play">
+            <span class="btn__icon" aria-hidden="true" data-audio-icon>▶︎</span>
+          </button>
+        </div>
+
         <p class="poems__title">Every moon-shaped hole has its concrete father</p>
         <p class="poems">
           Every millennial tear was made out of a feather,<br />

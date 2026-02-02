@@ -1,4 +1,4 @@
-/* Minimal, quiet, readable */
+/* Minimal, quiet, white */
 :root {
   --bg: #fff;
   --ink: rgba(20, 20, 20, 0.82);
@@ -11,10 +11,10 @@
   --poem: "CANELA_POEM", ui-serif, "Times New Roman", Times, serif;
   --poemTitle: "CANELA_TITLE", ui-serif, "Times New Roman", Times, serif;
 
-  /* prevent OS dark mode styling */
   color-scheme: light;
 }
 
+/* Fonts (put these files in liminal_site/assets/) */
 @font-face {
   font-family: "OGG";
   src: url("./assets/Ogg-Light.ttf") format("truetype");
@@ -24,18 +24,18 @@
 }
 
 @font-face {
-  font-family: "CANELA_POEM";
-  src: url("./assets/CanelaText-ThinItalic-Trial.otf") format("opentype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "CANELA_TITLE";
   src: url("./assets/CanelaText-Regular-Trial.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CANELA_POEM";
+  src: url("./assets/CanelaText-ThinItalic-Trial.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -53,7 +53,6 @@ body {
 
 body {
   margin: 0;
-  background: var(--bg);
   color: var(--ink);
   font-family: var(--ui);
   letter-spacing: 0.01em;
@@ -70,20 +69,25 @@ main {
   display: grid;
   place-items: center;
   padding: clamp(20px, 4vw, 60px);
-  transition: opacity 520ms ease, filter 520ms ease;
   background: var(--bg);
+  transition: opacity 520ms ease, filter 520ms ease;
 }
 
 .page[hidden] {
   display: none;
 }
 
+/* Page 1 */
+.page--cover {
+  grid-template-rows: auto auto auto 1fr;
+  align-content: start;
+  justify-items: center;
+  position: relative;
+}
+
 .cover {
   width: min(440px, 82vw);
-  margin-inline: auto;
   margin-top: clamp(40px, 6vh, 80px);
-  display: grid;
-  place-items: start center;
 }
 
 .cover__image {
@@ -93,7 +97,6 @@ main {
   border-radius: 16px;
   box-shadow: 0 24px 80px var(--shadow);
   border: 1px solid var(--line);
-  filter: saturate(0.95) contrast(0.98);
 }
 
 .transport {
@@ -104,24 +107,19 @@ main {
   gap: 18px;
 }
 
+.transport--icons {
+  margin-top: 10px;
+  gap: 12px;
+}
+
 .btn {
   appearance: none;
   border: 0;
   background: transparent;
   color: var(--ink);
   padding: 6px 4px;
-  border-radius: 0;
-  font-size: 13px;
   cursor: pointer;
   transition: opacity 180ms ease;
-}
-
-.btn__label {
-  font-family: var(--player);
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .btn:hover {
@@ -132,6 +130,20 @@ main {
   opacity: 0.45;
 }
 
+.btn__label {
+  font-family: var(--player);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.btn__icon {
+  font-family: var(--ui);
+  font-size: 16px;
+  line-height: 1;
+}
+
 .btn--primary .btn__label {
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -139,18 +151,11 @@ main {
   text-decoration-color: rgba(20, 20, 20, 0.18);
 }
 
-.page--cover {
-  grid-template-rows: auto auto 1fr;
-  align-content: start;
-  justify-items: center;
-  position: relative;
-}
-
+/* Credits (bottom-right) */
 .credits {
   position: absolute;
   right: clamp(12px, 2.8vw, 26px);
   bottom: clamp(10px, 2.2vw, 22px);
-  width: auto;
   max-width: min(420px, 70vw);
   padding: 0;
   color: var(--muted);
@@ -188,14 +193,21 @@ main {
   font-style: italic;
 }
 
+/* Page 2 */
 .page--poems {
   position: relative;
 }
 
-.back {
+.poems__top {
   position: absolute;
   top: clamp(18px, 3.5vw, 34px);
   left: clamp(18px, 3.5vw, 34px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back {
   appearance: none;
   border: 0;
   background: transparent;
@@ -203,6 +215,10 @@ main {
   cursor: pointer;
   color: var(--muted);
   transition: opacity 180ms ease;
+}
+
+.back--icon {
+  padding: 6px 2px;
 }
 
 .back:hover {
@@ -217,6 +233,19 @@ main {
   text-transform: uppercase;
 }
 
+.poems__title {
+  margin: 0 0 28px 0;
+  width: min(680px, 86vw);
+  font-family: var(--poemTitle);
+  font-size: clamp(18px, 1.7vw, 22px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.35;
+  color: rgba(20, 20, 20, 0.78);
+  letter-spacing: 0.012em;
+  text-align: left;
+}
+
 .poems {
   margin: 0;
   width: min(680px, 86vw);
@@ -228,23 +257,9 @@ main {
   color: rgba(20, 20, 20, 0.78);
   letter-spacing: 0.012em;
   text-align: left;
-  white-space: pre-line;
 }
 
-.poems__title {
-  margin: 0 0 28px 0;
-  width: min(680px, 86vw);
-  font-family: var(--poemTitle);
-  font-size: clamp(18px, 1.7vw, 22px); /* 2px bigger than poems */
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.35;
-  color: rgba(20, 20, 20, 0.78);
-  letter-spacing: 0.012em;
-  text-align: left;
-}
-
-/* soft fade between pages */
+/* Fade */
 .is-fading {
   opacity: 0;
   filter: blur(1.4px);

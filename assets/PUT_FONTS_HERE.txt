@@ -2,6 +2,18 @@ Put your font files in this folder:
 
   liminal_site/assets/
 
+For this site to use your fonts, these files must exist here (exact names):
+
+  Ogg-Light.ttf
+  CanelaText-Regular-Trial.otf
+  CanelaText-ThinItalic-Trial.otf
+
+Then refresh the site.
+
+Put your font files in this folder:
+
+  liminal_site/assets/
+
 This website is set up to look for a font named:
 
   Ogg-Light.ttf    (your current file works)
